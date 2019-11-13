@@ -19,6 +19,10 @@ def make_player(num, name1, name2):
 
 
 def random_pairs(name_list):
+    if len(name_list) % 2 != 0:
+        name_list.pop(0)
+        print("You entered an odd number of people. The last person will be removed.")
+
     duos = []
     while len(name_list) != 0:
         rand_idx = random.randint(0,len(name_list)-1)
@@ -33,7 +37,7 @@ def random_pairs(name_list):
 
 
 def main():
-    name_list = ['John', 'Bob', 'Peter', 'Amy', 'Clara', 'Jan']
+    name_list = ['John', 'Bob', 'Peter', 'Amy', 'Clara', 'Jan', 'Rob']
     pairs = random_pairs(name_list)
 
     bracket = [make_player(pairs.index(pair),pair[0],pair[1]) for pair in pairs]
